@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque PDF</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+  /* Add new date display style */
+  #date-display {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            font-size: 15px;
+            margin: 10px 0;
+            padding: 8px 15px;
+            background-color: #f8f8f8;
+            border-radius: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .date-time-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+        }
+        /* Header styles */
+        h1 {
+            color: #000000;
+            padding: 30px;
+            text-align: center;
+            margin: 0;
+            font-size: 23px;
+            font-weight: bold;
+            box-sizing: border-box;
+            position: relative;
+            display: inline-block;
+            opacity: 0;
+            animation: reveal-title 1s ease forwards 6s;
+        }
+
+        /* Container for the title and images */
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Image styling */
+        .title-image {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+        }
+
+        #image-right {
+            right: 35%;
+            animation: move-right 8s ease forwards;
+        }
+
+        #image-left {
+            left: 35%;
+            animation: move-left 8s ease forwards;
+        }
+
+        /* Animation for the right image */
+        @keyframes move-right {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(100px);
+            }
+        }
+
+        /* Animation for the left image */
+        @keyframes move-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+
+        /* Animation to reveal the title */
+        @keyframes reveal-title {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* News bar styles */
+    /* News bar styles */
+#news-bar {
+    background-color: #ffff00;
+    color: #000000;
+    font-weight: bold;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 98%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin: 10px;
+}
+
+.scroll-text {
+
+  display: inline-block;
+    animation: marquee 15s linear infinite;
+    white-space: nowrap;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+  
+}
+
+        /* Book card styles */
+.book-card ,.section-card ,.branch-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px; /* تقليل padding حول المحتوى */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 98px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-align: center;
+    border: 3px solid #ccc;
+    margin: 3px; /* تقليل margin حول البطاقة */
+    font-weight: bold;
+}
+
+.book-title {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0; /* تقليل المسافة حول العنوان */
+}
+
+.book-note {
+	background-color : red;
+	color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 8px;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    
+}
+.section-card img ,.book-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* تقليل المسافة أسفل الصورة */
+    
+}
+.section-card .section-name{
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    
+}
+        .book-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            
+        }
+
+      /* Update book-note style to show below book */
+
+
+        #sections-container {
+            text-align: center;
+            padding: 20px;
+            
+        }
+
+    #book-viewer-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+
+    #book-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: white;
+    }
+
+    .viewer-buttons {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        padding: 8px;
+        z-index: 1000;
+        justify-content: center;
+    }
+
+    .close-button, .open-button {
+        padding: 8px 15px;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 25px;
+    }
+
+    .close-button {
+        background-color: #0000FF;
+    }
+
+    .open-button {
+        background-color: #008000;
+        font-size: 0.6em;
+    }
+
+        .back-button ,   .skip-button {
+            
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            position: relative;
+            align-items: center;
+            font-weight : bold ;             
+        }
+            .skip-button:hover {
+            background-color: #0056b3;
+        }
+
+        #search-input {
+            width: 95%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            white-space: nowrap;
+            display: inline-block;
+            margin: 10px;
+            background-color: #F5F5F5;
+        }
+        .countdown {
+    background-color: #2d3436;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 90%;
+    text-align: center;
+}
+
+.countdown-expired {
+    background-color: #e74c3c;
+}
+.book-count {
+            background-color: rgba(255, 0, 0, 0.1); /* خلفية حمراء خفيفة */
+            color: red;
+            font-size: 12px;
+            font-weight: bold;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%; /* يجعل الشكل دائرياً */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 8px auto 0;
+            border: 1px solid rgba(255, 0, 0, 0.2); /* إطار خفيف */
+        }
+#popup-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content {
+    font-weight: bold;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 20px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 3px solid #ccc;
+    border-color: 4B0082;
+}
+
+.book-title-clickable {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 20px;
+    gap: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 4px 0;
+    width: 300px; /* Fixed width for all book titles */
+    justify-content: flex-start;
+    font-size: 9px;
+    
+}
+
+.book-title-clickable img {
+    width: 20px;
+    height: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    
+}
+
+.book-title-clickable:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-1px);
+    
+}
+
+.popup-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-align: center;
+    
+}
+
+.book-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+    
+}
+
+.book-title-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-start; /* Align to the left */
+    padding-left: 20px; /* Add some padding from the left edge */
+    border: 1.5px solid #ccc;
+    border-color: 4B0082;
+    border-radius: 25px;
+}
+
+.book-image-container {
+    flex-shrink: 0;
+    
+}
+
+.book-additional-info {
+    font-size: 8px;
+    margin-top: 2px;
+    text-align: center;
+    width: 100%;
+    color: #900C3F;
+    font-weight: bold;
+    
+}
+    </style>
+</head>
+<body>
+	
+<div id="popup-modal">
+        <div class="popup-content">
+            <div id="popup-messages"></div>
+            <button class="skip-button" onclick="closePopup()">Ignorer</button>
+        </div>
+    </div>
+
+
+    <div class="title-container">
+        <img id="image-left" class="title-image" src="https://img.icons8.com/?size=150&id=tdTb4KCPpmik&format=png&color=000000" alt="Image Gauche">
+        <h1 id="main-title">ACFTC OUJDA</h1>
+        <img id="image-right" class="title-image" src="https://img.icons8.com/?size=150&id=tdTb4KCPpmik&format=png&color=000000" alt="Image Droite">
+    </div>
+
+<div id="date-display">
+        <span class="date-time-container">
+            <img src="https://img.icons8.com/ios/50/calendar--v1.png" alt="calendar" class="icon">
+            <span id="date-text"></span>
+        </span>
+        <span class="date-time-container">
+            <img src="https://img.icons8.com/ios/50/clock--v1.png" alt="clock" class="icon">
+            <span id="time-text"></span>
+        </span>
+    </div>
+    	    <div id="news-bar">
+        <div class="scroll-text" id="scroll-content"></div>
+    </div>
+
+    <input type="text" id="search-input" placeholder="Rechercher un livre ou une section">
+
+    <div id="sections-container"></div>
+
+ <div id="book-viewer-container">
+        <iframe id="book-viewer"></iframe>
+        <div class="viewer-buttons">
+            <button class="close-button">Fermer</button>
+            <button class="open-button">Ouvrir dans un nouvel onglet</button>
+        </div>
+    </div>
+    
+    <script>
+    
+
+        function closePopup() {
+            document.getElementById('popup-modal').style.display = 'none';
+        }
+    
+    	document.querySelector('.close-button').addEventListener('click', () => {
+    document.getElementById('book-viewer-container').style.display = 'none';
+});
+
+document.querySelector('.open-button').addEventListener('click', () => {
+    const viewerUrl = document.getElementById('book-viewer').src;
+    window.open(viewerUrl, '_blank');
+});
+
+function showBookViewer(url) {
+    const viewerUrl = url.replace('view?usp=drivesdk', 'preview');
+    document.getElementById('book-viewer').src = viewerUrl;
+    document.getElementById('book-viewer-container').style.display = 'flex';
+}
+
+// Update existing bookCard onclick events to use the new showBookViewer function
+const bookCards = document.querySelectorAll('.book-card');
+bookCards.forEach(card => {
+    const url = card.dataset.url;
+    if (url) {
+        card.onclick = () => showBookViewer(url);
+    }
+});
+    	function updateDateTime() {
+        const now = new Date();
+        const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+        
+        const dayName = days[now.getDay()];
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        document.getElementById('date-text').textContent = `${dayName} : ${day}/${month}/${year}`;
+        document.getElementById('time-text').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+    
+    const apiKey = 'AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw';
+    const sheetId = '1j6vV2HkCWbcmPKtUivh2xeXsmaY3ab_1KMG-XTvZT_c';
+    const sheetName = 'RGS';
+
+    function calculateTimeLeft(targetDateStr) {
+    // Parse the date string in format "DD/MM/YYYY HH:MM"
+    const [datePart, timePart] = targetDateStr.split(' ');
+    const [day, month, year] = datePart.split('/');
+    const [hours, minutes] = timePart.split(':');
+    
+    const targetDate = new Date(year, month - 1, day, hours, minutes);
+    const now = new Date().getTime();
+    const difference = targetDate.getTime() - now;
+
+    if (difference <= 0) {
+        return null;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hrs = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((difference % (1000 * 60)) / 1000);
+
+    return {
+        days,
+        hours: hrs,
+        minutes: mins,
+        seconds: secs
+    };
+}
+
+function formatCountdown(timeLeft) {
+    if (!timeLeft) return '';
+    
+    const parts = [];
+    if (timeLeft.days > 0) parts.push(`${timeLeft.days} jr${timeLeft.days > 1 ? 's' : ''}`);
+    if (timeLeft.hours > 0) parts.push(`${timeLeft.hours} hr${timeLeft.hours > 1 ? 's' : ''}`);
+    if (timeLeft.minutes > 0) parts.push(`${timeLeft.minutes} min${timeLeft.minutes > 1 ? 's' : ''}`);
+    if (timeLeft.seconds > 0) parts.push(`${timeLeft.seconds} ${timeLeft.seconds > 1 ? 's' : ''}`);
+    
+    return parts.join(' ');
+}
+
+function updateAllCountdowns() {
+    const countdownElements = document.querySelectorAll('.countdown');
+    countdownElements.forEach(element => {
+        const deadline = element.dataset.deadline;
+        if (!deadline) return;
+
+        const timeLeft = calculateTimeLeft(deadline);
+        if (!timeLeft) {
+            // If countdown is finished, remove the element
+            element.remove();
+        } else {
+            const formattedTime = formatCountdown(timeLeft);
+            element.textContent = formattedTime;
+        }
+    });
+}
+
+// Update countdowns every second
+setInterval(updateAllCountdowns, 1000);
+
+// Initial update
+updateAllCountdowns();
+
+    let hasShownPopup = false;
+    
+async function fetchData() {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            console.error('Erreur de récupération des données:', response.status, response.statusText);
+            return null;
+        }
+        const data = await response.json();
+        
+        const popupMessages = [];
+        
+        if (data.values && data.values.length > 1) {
+            data.values.slice(1).forEach(row => {
+                if (row[15] && row[15].trim() !== '') {
+                    const dateRange = row[17] ? row[17].trim() : '';
+                    let isValid = true;
+                    
+                    if (dateRange) {
+                        // Parse new date format: "DD/MM/YYYY HH:mm à DD/MM/YYYY HH:mm"
+                        const [startDateTime, endDateTime] = dateRange.split(' à ').map(dateTime => {
+                            const [date, time] = dateTime.split(' ');
+                            const [day, month, year] = date.split('/');
+                            const [hours, minutes] = time ? time.split(':') : ['00', '00'];
+                            return new Date(year, month - 1, day, hours, minutes);
+                        });
+                        
+                        const now = new Date();
+                        isValid = now >= startDateTime && now <= endDateTime;
+                    } else {
+                        isValid = row[15].includes('&');
+                    }
+                    
+                    if (isValid) {
+                        const message = {
+                            columnP: {
+                                text: row[15],
+                                color: row[16] || '#000000'
+                            }
+                        };
+                        
+                        if (row[15].includes('&')) {
+                            message.additionalInfo = {
+                                columnL: row[11] || '',
+                                columnA: row[0] || '',
+                                color: row[16] || '#000000'
+                            };
+                        }
+                        
+                        popupMessages.push(message);
+                    }
+                }
+            });
+            
+            if (popupMessages.length > 0) {
+                showPopup(popupMessages);
+            }
+        }
+        
+        return data.values;
+    } catch (error) {
+        console.error('Erreur de requête:', error);
+        return null;
+    }
+}
+
+
+function showPopup(messages) {
+    if (sessionStorage.getItem('popupShown')) {
+        return;
+    }
+    
+    const popupModal = document.getElementById('popup-modal');
+    const popupMessages = document.getElementById('popup-messages');
+    
+    if (messages.length > 0) {
+        popupMessages.innerHTML = '';
+        messages.forEach(msg => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'popup-message';
+            
+            const cleanText = msg.columnP.text.replace(/&/g, '');
+            let messageContent = `<div style="color: ${msg.columnP.color};">${cleanText}</div>`;
+            
+            if (msg.additionalInfo) {
+                messageContent += `
+                    <div class="book-info-container">
+                        ${msg.additionalInfo.columnA?.trim() ? `
+                            <div class="book-title-container">
+                                <div class="book-image-container book-clickable" data-book-title="${msg.additionalInfo.columnA}">
+                                    <img src="" alt="" style="width: 40px; height: 40px; display: none; border-radius: 5px;">
+                                </div>
+                                <div class="book-title-clickable" style="color: ${msg.additionalInfo.color};">
+                                    ${msg.additionalInfo.columnA}
+                                </div>
+                            </div>
+                        ` : ''}
+                        ${msg.additionalInfo.columnL ? `
+                            <div class="book-additional-info" style="color: ${msg.additionalInfo.color};">
+                                ${msg.additionalInfo.columnL}
+                            </div>
+                        ` : ''}
+                    </div>`;
+            }
+            
+            messageDiv.innerHTML = messageContent;
+            
+            
+            if (msg.additionalInfo && msg.additionalInfo.columnA?.trim()) {
+                const bookImageContainer = messageDiv.querySelector('.book-image-container');
+                if (bookImageContainer) {
+                    fetchData().then(data => {
+                        if (!data) return;
+                        const book = data.slice(1).find(row => row[0] === msg.additionalInfo.columnA);
+                        if (book) {
+                            if (book[2]) {
+                                const imgElement = bookImageContainer.querySelector('img');
+                                imgElement.src = book[2];
+                                imgElement.style.display = 'block';
+                            }
+                            // تعيين لون الخلفية من العمود O (الذي يفترض أنه في الموقع 14)
+                            const backgroundColor = book[14] || 'transparent';
+                            const titleContainer = messageDiv.querySelector('.book-title-container');
+                            if (titleContainer) {
+                                titleContainer.style.backgroundColor = backgroundColor;
+                            }
+                        }
+                    });
+                }
+
+                const handleBookClick = async () => {
+                    const data = await fetchData();
+                    if (!data) return;
+                    
+                    const book = data.slice(1).find(row => row[0] === msg.additionalInfo.columnA);
+                    
+                    if (book) {
+                        const bookCard = document.createElement('div');
+                        bookCard.className = 'book-card';
+                        
+                        if (book[12]) {
+                            bookCard.style.backgroundColor = book[12];
+                        }
+                        
+                        const deadline = book[13] || '';
+                        const hasActiveCountdown = deadline && calculateTimeLeft(deadline);
+                        const imageUrl = hasActiveCountdown ? 
+                            'https://img.icons8.com/?size=100&id=uVPVzPo-AQyA&format=png&color=000000' : 
+                            book[2];
+                        
+                        bookCard.innerHTML = `
+                            <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                <img src="${imageUrl}" alt="Image du livre" style="width: 50px; height: 60px; margin-bottom: 8px;">
+                                <div>
+                                    <h4 class="book-title" style="margin: 0;">${book[0]}</h4>
+                                    ${book[11] ? `<div class="book-note">${book[11]}</div>` : ''}
+                                    ${deadline ? `<div class="countdown" data-deadline="${deadline}">جاري حساب الوقت المتبقي...</div>` : ''}
+                                </div>
+                            </div>
+                        `;
+                        
+                        bookCard.onclick = () => {
+                            const viewerUrl = book[1].replace('view?usp=drivesdk', 'preview');
+                            document.getElementById('book-viewer').src = viewerUrl;
+                            document.getElementById('book-viewer-container').style.display = 'flex';
+                            popupModal.style.display = 'none';
+                        };
+                        
+                        const existingBookCards = popupMessages.querySelectorAll('.book-card');
+                        existingBookCards.forEach(card => card.remove());
+                        
+                        messageDiv.appendChild(bookCard);
+                        updateAllCountdowns();
+                    }
+                };
+
+                const bookTitleElement = messageDiv.querySelector('.book-title-clickable');
+                bookTitleElement.onclick = handleBookClick;
+
+                if (bookImageContainer) {
+                    bookImageContainer.onclick = handleBookClick;
+                }
+            }
+            
+            popupMessages.appendChild(messageDiv);
+        });
+        
+        popupModal.style.display = 'flex';
+        sessionStorage.setItem('popupShown', 'true');
+    }
+}
+
+
+
+
+    function showSections() {
+        document.getElementById('sections-container').innerHTML = '';
+        document.getElementById('book-viewer-container').style.display = 'none';
+        loadPage();
+    }
+
+    function filterResults(data, searchTerm) {
+    const filteredBooks = [];
+    data.slice(1).forEach(row => {
+        if (!row || row.length === 0) return;
+
+        const bookTitle = row[0] || '';
+        const bookUrl = row[1] || '';
+        const bookImage = row[2] || '';
+        const section = row[3] || '';
+        const branch = row[6] || section || '';
+        const deadline = row[13] || '';
+        const dateRangeStr = row[17] ? row[17].trim() : '';
+
+        // Check if the book should be displayed based on column R
+        let shouldDisplay = true;
+
+        if (dateRangeStr && dateRangeStr.includes('&')) {
+            // Parse the date range "DD/MM/YYYY HH:mm à DD/MM/YYYY HH:mm"
+            const [startDateStr, endDateStr] = dateRangeStr.split(' à ');
+            
+            if (startDateStr && endDateStr) {
+                const [startDate, startTime] = startDateStr.split(' ');
+                const [endDate, endTime] = endDateStr.split(' ');
+                
+                const [startDay, startMonth, startYear] = startDate.split('/');
+                const [startHours, startMinutes] = startTime ? startTime.split(':') : ['00', '00'];
+                
+                const [endDay, endMonth, endYear] = endDate.split('/');
+                const [endHours, endMinutes] = endTime ? endTime.split(':') : ['23', '59'];
+                
+                const startDateTime = new Date(startYear, startMonth - 1, startDay, startHours, startMinutes);
+                const endDateTime = new Date(endYear, endMonth - 1, endDay, endHours, endMinutes);
+                const now = new Date();
+                
+                shouldDisplay = now >= startDateTime && now <= endDateTime;
+            }
+        }
+
+        if (shouldDisplay && bookTitle && bookUrl) {
+            if (bookTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                section.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                branch.toLowerCase().includes(searchTerm.toLowerCase())) {
+                filteredBooks.push({
+                    title: bookTitle,
+                    url: bookUrl,
+                    image: bookImage,
+                    section: section,
+                    branch: branch,
+                    color: row[10] || '',
+                    note: row[11] || '',
+                    backgroundColor: row[12] || '',
+                    deadline: deadline
+                });
+            }
+        }
+    });
+    return filteredBooks;
+}
+    function displayFilteredResults(filteredBooks) {
+        const sectionsContainer = document.getElementById('sections-container');
+        sectionsContainer.innerHTML = '';
+
+        if (filteredBooks.length === 0) {
+            sectionsContainer.innerHTML = '<p style="text-align: center;">Il n y a pas de résultats</p>';
+            return;
+        }
+
+        filteredBooks.forEach(book => {
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card';
+            
+            if (book.backgroundColor) {
+                bookCard.style.backgroundColor = book.backgroundColor;
+            }
+
+            bookCard.innerHTML = `
+                <img class="book-image" src="${book.image}" alt="${book.title}" style="width: 50px; height: auto; margin-bottom: 5px;">
+                <div class="book-title">${book.title}</div>
+                ${book.note ? `<div class="book-note">${book.note}</div>` : ''}
+                ${book.deadline ? `<div class="countdown" data-deadline="${book.deadline}">جاري حساب الوقت المتبقي...</div>` : ''}
+            `;
+
+            bookCard.onclick = () => {
+                const viewerUrl = book.url.replace('view?usp=drivesdk', 'preview');
+                document.getElementById('book-viewer').src = viewerUrl;
+                document.getElementById('book-viewer-container').style.display = 'flex';
+            };
+
+            sectionsContainer.appendChild(bookCard);
+        });
+
+        const backButton = document.createElement('button');
+        backButton.className = 'back-button';
+        backButton.innerText = 'Retour';
+        backButton.onclick = showSections;
+        sectionsContainer.appendChild(backButton);
+
+        updateAllCountdowns();
+        setTimeout(setUniformCardDimensions, 100);
+    }
+
+    function setupNewsBar(notifications) {
+    if (notifications.length > 0) {
+        const scrollContent = document.getElementById('scroll-content');
+        let newsText = '';
+
+        notifications.forEach(notification => {
+            const notificationText = `${notification[9]} | `;
+            const notificationColor = notification[10];
+            newsText += `<span style="color: ${notificationColor};">${notificationText}</span>`;
+        });
+
+        scrollContent.innerHTML = newsText;
+        document.getElementById('news-bar').style.display = 'block';
+    }
+}
+
+    function showBranchAndBooks(sectionData) {
+    const sectionsContainer = document.getElementById('sections-container');
+    sectionsContainer.innerHTML = '';
+
+    const booksContainer = document.createElement('div');
+    booksContainer.style.marginBottom = '20px';
+
+    const branches = Object.keys(sectionData.branches);
+    const hasBranches = branches.length > 0 && 
+        branches.some(branch => branch !== branches[0]);
+
+    if (!hasBranches && (!sectionData.branches[branches[0]] || !sectionData.branches[branches[0]].books.length)) {
+        const emptyMessage = document.createElement('p');
+        emptyMessage.style.textAlign = 'center';
+        emptyMessage.style.margin = '20px';
+        emptyMessage.style.color = '#666';
+        emptyMessage.innerText = 'Aucun livre dans cette section';
+        sectionsContainer.appendChild(emptyMessage);
+    } 
+    else if (!hasBranches) {
+        const sortedBooks = [...sectionData.branches[branches[0]].books].sort((a, b) => {
+            const hasCountdownA = a[5] && calculateTimeLeft(a[5]);
+            const hasCountdownB = b[5] && calculateTimeLeft(b[5]);
+            return hasCountdownB - hasCountdownA;
+        });
+
+        sortedBooks.forEach(book => {
+            const bookCard = document.createElement('div');
+            bookCard.className = 'book-card';
+            if (book[4]) {
+                bookCard.style.backgroundColor = book[4];
+            }
+
+            const hasActiveCountdown = book[5] && calculateTimeLeft(book[5]);
+            const imageUrl = hasActiveCountdown ? 
+                'https://img.icons8.com/?size=100&id=uVPVzPo-AQyA&format=png&color=000000' : 
+                book[2];
+
+            bookCard.innerHTML = `
+                <img src="${imageUrl}" alt="Image du livre" style="width: 50px; height: 60px;">
+                <h4 class="book-title">${book[0]}</h4>
+                ${book[3] ? `<div class="book-note">${book[3]}</div>` : ''}
+                ${book[5] ? `<div class="countdown" data-deadline="${book[5]}">جاري حساب الوقت المتبقي...</div>` : ''}
+            `;
+            
+            bookCard.onclick = () => {
+                document.getElementById('book-viewer').src = book[1].replace('view?usp=drivesdk', 'preview');
+                document.getElementById('book-viewer-container').style.display = 'flex';
+            };
+            
+            booksContainer.appendChild(bookCard);
+        });
+
+        sectionsContainer.appendChild(booksContainer);
+        setTimeout(() => setUniformCardDimensions(), 100);
+    }
+    else {
+        const allBookContainers = [];
+        
+        for (const [branchName, branchData] of Object.entries(sectionData.branches)) {
+            const branchButton = document.createElement('button');
+            branchButton.className = 'branch-button';
+            branchButton.style.backgroundColor = branchData.color;
+            branchButton.innerText = branchName;
+
+            const bookContainer = document.createElement('div');
+            bookContainer.className = 'branch-books-container';
+            bookContainer.style.display = 'none';
+            allBookContainers.push(bookContainer);
+
+            if (branchData.books.length === 0) {
+                const emptyBranchMessage = document.createElement('p');
+                emptyBranchMessage.style.textAlign = 'center';
+                emptyBranchMessage.style.margin = '20px';
+                emptyBranchMessage.style.color = '#666';
+                emptyBranchMessage.innerText = 'Aucun livre dans cette section';
+                bookContainer.appendChild(emptyBranchMessage);
+            } else {
+                const sortedBooks = [...branchData.books].sort((a, b) => {
+                    const hasCountdownA = a[5] && calculateTimeLeft(a[5]);
+                    const hasCountdownB = b[5] && calculateTimeLeft(b[5]);
+                    return hasCountdownB - hasCountdownA;
+                });
+
+                sortedBooks.forEach(book => {
+                    const bookCard = document.createElement('div');
+                    bookCard.className = 'book-card';
+                    if (book[4]) {
+                        bookCard.style.backgroundColor = book[4];
+                    }
+
+                    const hasActiveCountdown = book[5] && calculateTimeLeft(book[5]);
+                    const imageUrl = hasActiveCountdown ? 
+                        'https://img.icons8.com/?size=100&id=uVPVzPo-AQyA&format=png&color=000000' : 
+                        book[2];
+
+                    bookCard.innerHTML = `
+                        <img src="${imageUrl}" alt="Image du livre" style="width: 50px; height: 60px;">
+                        <h4 class="book-title">${book[0]}</h4>
+                        ${book[3] ? `<div class="book-note">${book[3]}</div>` : ''}
+                        ${book[5] ? `<div class="countdown" data-deadline="${book[5]}">جاري حساب الوقت المتبقي...</div>` : ''}
+                    `;
+
+                    bookCard.onclick = () => {
+                        document.getElementById('book-viewer').src = book[1].replace('view?usp=drivesdk', 'preview');
+                        document.getElementById('book-viewer-container').style.display = 'flex';
+                    };
+                    bookContainer.appendChild(bookCard);
+                });
+            }
+
+            branchButton.onclick = () => {
+                allBookContainers.forEach(container => container.style.display = 'none');
+                booksContainer.innerHTML = '';
+                booksContainer.appendChild(bookContainer);
+                bookContainer.style.display = 'block';
+                
+                // Apply uniform dimensions after making container visible
+                setTimeout(() => {
+                    updateAllCountdowns();
+                    setUniformCardDimensions();
+                }, 100);
+            };
+
+            sectionsContainer.appendChild(branchButton);
+        }
+
+        sectionsContainer.appendChild(booksContainer);
+    }
+
+    const backButton = document.createElement('button');
+    backButton.className = 'back-button';
+    backButton.innerText = 'Retour';
+    backButton.onclick = showSections;
+    sectionsContainer.appendChild(backButton);
+
+    // Initial update for first visible container
+    updateAllCountdowns();
+    setTimeout(() => setUniformCardDimensions(), 100);
+}
+
+    async function loadPage() {
+    const data = await fetchData();
+    if (!data) return;
+
+    const notifications = [];
+    const sections = {};
+
+    // First pass: Initialize all sections from column D (index 3)
+    data.slice(1).forEach(row => {
+        if (!row || row.length === 0) return;
+        
+        const sectionNames = row[3] ? row[3].split('&').map(s => s.trim()) : [];
+        
+        sectionNames.forEach(section => {
+            if (section && !sections[section]) {
+                sections[section] = { 
+                    color: row[4] || '#f5f5f5', 
+                    image: row[5] || '', 
+                    branches: {} 
+                };
+            }
+        });
+
+        if (row[9]) notifications.push(row);
+    });
+
+// Second pass: Add books to sections
+data.slice(1).forEach(row => {
+    if (!row || row.length === 0) return;
+
+    const sectionNames = row[3] ? row[3].split('&').map(s => s.trim()) : [];
+    
+    if (row[0] && row[1]) { // If there's a book (title and URL exist)
+        // Check if the book should be displayed based on column R
+        const dateRangeStr = row[17] ? row[17].trim() : '';
+        let shouldDisplay = true;
+
+        if (dateRangeStr && dateRangeStr.includes('&')) {
+            // Parse the date range "DD/MM/YYYY HH:mm à DD/MM/YYYY HH:mm"
+            const [startDateStr, endDateStr] = dateRangeStr.split(' à ');
+            
+            if (startDateStr && endDateStr) {
+                const [startDate, startTime] = startDateStr.split(' ');
+                const [endDate, endTime] = endDateStr.split(' ');
+                
+                const [startDay, startMonth, startYear] = startDate.split('/');
+                const [startHours, startMinutes] = startTime ? startTime.split(':') : ['00', '00'];
+                
+                const [endDay, endMonth, endYear] = endDate.split('/');
+                const [endHours, endMinutes] = endTime ? endTime.split(':') : ['23', '59'];
+                
+                const startDateTime = new Date(startYear, startMonth - 1, startDay, startHours, startMinutes);
+                const endDateTime = new Date(endYear, endMonth - 1, endDay, endHours, endMinutes);
+                const now = new Date();
+                
+                shouldDisplay = now >= startDateTime && now <= endDateTime;
+            }
+        }
+
+        if (shouldDisplay) {
+            sectionNames.forEach(section => {
+                if (section) {
+                    const branch = row[6] || section;
+                    
+                    if (!sections[section].branches[branch]) {
+                        sections[section].branches[branch] = { 
+                            color: row[7] || '#f5f5f5', 
+                            image: row[8] || '', 
+                            books: [] 
+                        };
+                    }
+                    
+                    const bookData = [
+                        row[0] || '', // title
+                        row[1] || '', // url
+                        row[2] || '', // image
+                        row[11] || '', // note
+                        row[12] || '', // backgroundColor
+                        row[13] || '' // deadline
+                    ];
+                    
+                    sections[section].branches[branch].books.push(bookData);
+                }
+            });
+        }
+    }
+});
+
+    setupNewsBar(notifications);
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm.length > 0) {
+            const filteredBooks = filterResults(data, searchTerm);
+            displayFilteredResults(filteredBooks);
+        } else {
+            displayResults(sections);
+        }
+    });
+    displayResults(sections);
+}
+
+function displayResults(sections) {
+    const sectionsContainer = document.getElementById('sections-container');
+    sectionsContainer.innerHTML = '';
+
+    for (const [sectionName, sectionData] of Object.entries(sections)) {
+        if (!sectionName || sectionName.trim() === '') continue;
+
+        const totalBooks = Object.values(sectionData.branches)
+            .reduce((total, branch) => total + branch.books.length, 0);
+
+        const sectionCard = document.createElement('div');
+        sectionCard.className = 'section-card';
+        sectionCard.style.backgroundColor = sectionData.color;
+
+        sectionCard.innerHTML = `
+            <img src="${sectionData.image || 'placeholder-image-url'}" alt="Image de la section" style="width: 60px; height: 60px;">
+            <div class="section-name">${sectionName}</div>
+            <div class="book-count" style="color: red; font-size: 12px; font-weight: bold; margin-top: 8px;">
+                ${totalBooks}
+            </div>
+        `;
+
+        sectionCard.onclick = () => {
+            showBranchAndBooks(sectionData);
+        };
+
+        sectionsContainer.appendChild(sectionCard);
+    }
+
+    setTimeout(setUniformCardDimensions, 100);
+}
+function setUniformCardDimensions() {
+            const allCards = document.querySelectorAll('.book-card, .section-card');
+
+            // Reset heights to auto before calculating
+            allCards.forEach(card => {
+                card.style.height = 'auto';
+            });
+
+            // Get all card heights
+            const cardHeights = Array.from(allCards).map(card => card.scrollHeight);
+
+            // Find the maximum height
+            const maxHeight = Math.max(...cardHeights, 140); // Minimum height of 140px
+
+            // Apply the maximum height to all cards
+            allCards.forEach(card => {
+                card.style.height = `${maxHeight}px`;
+            });
+        }
+        // ... (rest of the JavaScript)
+        window.addEventListener('load', setUniformCardDimensions);
+        window.addEventListener('resize', setUniformCardDimensions)
+
+// تحميل الصفحة عند التشغيل
+loadPage();
+</script>
+</body>
+</html>
