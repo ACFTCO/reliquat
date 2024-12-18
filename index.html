@@ -6,16 +6,7 @@
   	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <title>congés et repos</title>
 	<link rel="icon" type="image/png" href="https://i.postimg.cc/bvpTrPxK/day-off-vector-cartoon-dai-sticker-557176-wh860-copy-512x512.png">
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "4103db19-8ea6-476f-b4a0-392f67d176e9",
-    });
-  });
-</script>
-	<style>
+  <style>
     /* All previous styles remain exactly the same */
     body {
       font-family: 'Arial', sans-serif;
@@ -483,11 +474,13 @@
    <h1>ACFTC OUJDA</h1>
       <div class="reliquat">RELIQUAT</div>
       <div id="totalContributionsDisplay" class="total-contributions"></div>
+       
     </header>
 
   <div class="container">
     <div id="loginSection">
       <form id="loginForm">
+     
         <div class="input-group">
           <label for="username">Nom d'utilisateur :</label>
           <span class="input-icon">👤</span>
@@ -499,8 +492,9 @@
           <input type="password" id="password" name="password" required>
           <span class="show-password" onclick="togglePassword()">👁️</span>
         </div>
+        
         <button type="submit">Afficher les données</button>
-
+ 
         <div class="help-text">
   <a href="whatsapp://send?text=Bonjour, j'ai oublié mon mot de passe. Voici mes informations : Nom et Matricule&phone=0641434629">
     Mot de passe oublié
@@ -557,6 +551,7 @@
     </form>
   </div>
 </div>
+ 	
 
 
 <!-- النموذج -->
@@ -577,6 +572,57 @@
 </div>
 
 <script>
+	function showErrorMessage(message) {
+  // Create popup container
+  const popup = document.createElement('div');
+  popup.style.position = 'fixed';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.backgroundColor = '#dc3545';
+  popup.style.color = 'white';
+  popup.style.padding = '20px';
+  popup.style.borderRadius = '10px';
+  popup.style.zIndex = '1000';
+  popup.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+  popup.style.textAlign = 'center';
+  popup.style.maxWidth = '80%';
+  
+  // Create message element
+  const messageElement = document.createElement('div');
+  messageElement.textContent = message;
+  messageElement.style.marginBottom = '15px';
+  
+  // Create close button
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Fermer';
+  closeButton.style.backgroundColor = 'white';
+  closeButton.style.color = '#dc3545';
+  closeButton.style.border = 'none';
+  closeButton.style.padding = '10px 20px';
+  closeButton.style.borderRadius = '5px';
+  closeButton.style.cursor = 'pointer';
+  
+  // Add close functionality
+  closeButton.addEventListener('click', () => {
+    document.body.removeChild(popup);
+  });
+  
+  // Assemble popup
+  popup.appendChild(messageElement);
+  popup.appendChild(closeButton);
+  
+  // Add to document
+  document.body.appendChild(popup);
+  
+  // Auto-remove after 5 seconds
+  setTimeout(() => {
+    if (document.body.contains(popup)) {
+      document.body.removeChild(popup);
+    }
+  }, 5000);
+}
+	
     function openNewUserModal() {
   document.getElementById('newUserModal').style.display = 'flex';
 }
@@ -624,84 +670,95 @@ function closeNewUserModal() {
     document.getElementById('logoutBtn').addEventListener('click', logout);
 
     document.getElementById("loginForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
+  e.preventDefault();
 
-      const username = document.getElementById("username").value.trim().toLowerCase();
-      const password = document.getElementById("password").value.trim();
-      const userPassword = `${username}:${password}`;
+  const username = document.getElementById("username").value.trim().toLowerCase();
+  const password = document.getElementById("password").value.trim();
+  const userPassword = `${username}:${password}`;
 
-      const resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
+  const resultDiv = document.getElementById("result");
+  
+  // إنشاء عنصر لعرض رسائل الخطأ بشكل أوضح
+  const errorMessageDiv = document.createElement('div');
+  errorMessageDiv.className = 'error-message';
+  errorMessageDiv.style.display = 'none';
+  resultDiv.innerHTML = ''; // مسح أي محتوى سابق
+  resultDiv.appendChild(errorMessageDiv);
 
-      try {
-        const response = await fetch(
-          `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
-        );
-        const data = await response.json();
+  resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
 
-        if (!data.values) {
-          resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Vérifiez les paramètres.</p>";
-          return;
-        }
+  try {
+    const response = await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
+    );
+    const data = await response.json();
 
-        const rows = data.values;
-        const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
+    if (!data.values) {
+      showErrorMessage("Erreur lors du chargement des données. Vérifiez les paramètres.");
+      return;
+    }
 
-        if (!userRow) {
-          resultDiv.innerHTML = "<p class='error-message'>Nom d'utilisateur ou mot de passe incorrect.</p>";
-          return;
-        }
+    const rows = data.values;
+    const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
 
-        document.getElementById('loginSection').classList.add('hidden');
-        document.getElementById('dataSection').classList.add('visible');
-        showLogoutButton();
+    if (!userRow) {
+      showErrorMessage("Nom d'utilisateur ou mot de passe incorrect.");
+      return;
+    }
 
-        const userName = userRow[0] || "Non spécifié";
-        const userFunction = userRow[1] || "Non spécifié";
-        document.getElementById("userName").textContent = userName;
-        document.getElementById("userFunction").textContent = userFunction;
-        document.getElementById("yearDisplay").textContent = `Année : ${sheetName}`;
+    document.getElementById('loginSection').classList.add('hidden');
+    document.getElementById('dataSection').classList.add('visible');
+    showLogoutButton();
 
-        const months = [
-          "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-          "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-        ];
+    const userName = userRow[0] || "Non spécifié";
+    const userFunction = userRow[1] || "Non spécifié";
+    document.getElementById("userName").textContent = userName;
+    document.getElementById("userFunction").textContent = userFunction;
+    document.getElementById("yearDisplay").textContent = `Année : ${sheetName}`;
 
-        let table = `
-          <table>
-            <thead>
-              <tr>
-                <th>Mois</th>
-                <th>CONGÉ</th>
-                <th>REPOS</th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
+    const months = [
+      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
 
-        for (let i = 0; i < months.length; i++) {
-          const conge = userRow[2 + i * 2] || "Non disponible";
-          const repos = userRow[3 + i * 2] || "Non disponible";
-          table += `
-            <tr>
-              <td>${months[i]}</td>
-              <td>${conge}</td>
-              <td>${repos}</td>
-            </tr>
-          `;
-        }
+    let table = `
+      <table>
+        <thead>
+          <tr>
+            <th>Mois</th>
+            <th>CONGÉ</th>
+            <th>REPOS</th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
 
-        table += `
-            </tbody>
-          </table>
-        `;
+    for (let i = 0; i < months.length; i++) {
+      const conge = userRow[2 + i * 2] || "Non disponible";
+      const repos = userRow[3 + i * 2] || "Non disponible";
+      table += `
+        <tr>
+          <td>${months[i]}</td>
+          <td>${conge}</td>
+          <td>${repos}</td>
+        </tr>
+      `;
+    }
 
-        resultDiv.innerHTML = table;
-      } catch (error) {
-        console.error(error);
-        resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Veuillez réessayer plus tard.</p>";
-      }
-    });
+    table += `
+        </tbody>
+      </table>
+    `;
+
+    resultDiv.innerHTML = table;
+  } catch (error) {
+    console.error(error);
+    showErrorMessage("Erreur lors du chargement des données. Veuillez réessayer plus tard.");
+  }
+});
+
+// دالة مساعدة لعرض رسائل الخطأ
+
    const userDetailsDiv = document.getElementById('userDetails');
 
 const leaveRequestBtn = document.createElement('button');
