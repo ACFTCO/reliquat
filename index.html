@@ -1,23 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <title>congés et repos</title>
-	<link rel="icon" type="image/png" href="https://i.postimg.cc/bvpTrPxK/day-off-vector-cartoon-dai-sticker-557176-wh860-copy-512x512.png">
-  <style>
-    /* All previous styles remain exactly the same */
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #f4f7f6 0%, #e8f0fe 100%);
-      margin: 0;
-      padding: 0;
-      color: #333;
-      min-height: 100vh;
-    }
 
-    header {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@700&display=swap"
+        rel="stylesheet">
+    <title>congés et repos</title>
+    <link rel="icon" type="image/png"
+        href="https://tinypic.host/images/2025/01/26/1000093588.webp">
+
+    <style>
+        /* Tous les styles précédents restent exactement les mêmes */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f4f7f6 0%, #e8f0fe 100%);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        header {
             background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
             color: white;
             padding: 20px;
@@ -75,827 +80,1009 @@
             }
         }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    form {
-      max-width: 500px;
-      margin: 30px auto;
-      padding: 30px;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
+        form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-    form:hover {
-      transform: translateY(-5px);
-    }
+        form:hover {
+            transform: translateY(-5px);
+        }
 
-    .input-group {
-      position: relative;
-      margin-bottom: 20px;
-    }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-    form label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: #2c3e50;
-    }
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
 
-    form input {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #e3e3e3;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-    }
+        form input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e3e3e3;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
 
-    form input:focus {
-      border-color: #007bff;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-    }
+        form input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
 
-    .show-password {
-      position: absolute;
-      right: 10px;
-      top: 40px;
-      cursor: pointer;
-      color: #666;
-    }
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 40px;
+            cursor: pointer;
+            color: #666;
+        }
 
-    form button {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+        form button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-    form button:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+        form button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    .help-text {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 20px;
-      text-align: center;
-      line-height: 1.5;
-    }
+        .help-text {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 1.5;
+        }
 
-    .help-text a {
-      display: block;
-      padding: 10px 15px;
-      margin: 10px auto;
-      background-color: #f8f9fa;
-      color: #007bff;
-      text-decoration: none;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      max-width: 250px;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
+        .help-text a {
+            display: block;
+            padding: 10px 15px;
+            margin: 10px auto;
+            background-color: #f8f9fa;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
 
-    .help-text a:hover {
-      background-color: #e9ecef;
-      text-decoration: none;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+        .help-text a:hover {
+            background-color: #e9ecef;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    #userDetails {
-      max-width: 600px;
-      margin: 30px auto;
-      background-color: white;
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 0.5s ease;
-    }
+        #userDetails {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+            position: relative; /* Pour positionner le news bar absolument */
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-    #userDetails h2 {
-    
-      margin: 0;
-      margin-bottom: 10px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #007bff;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    #userFunction {
-      margin: 5px 0;
-      font-size: 12px;
-      color: #dc3545 !important;
-      font-weight: bold;
-    }
+        #userDetails h2 {
 
-    table {
-      margin: 30px auto;
-      border-collapse: separate;
-      border-spacing: 0;
-      width: 96%;
-      max-width: 1000px;
-      background-color: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #007bff;
+        }
 
-    table thead {
-      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-      color: white;
-     font-size : 15px;
-    }
+        #userFunction {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #dc3545 !important;
+            font-weight: bold;
+        }
 
-    table th {
-      padding: 18px;
-      text-align: center;
-      font-weight: bold;
-      
-    }
+        table {
+            margin: 30px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 96%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
 
-    table td {
-      padding: 8px;
-      text-align: center;
-      border: 1px solid #eee;
-      font-size : 10px;
-    
-    }
+        table thead {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            font-size: 15px;
+        }
 
-    table tbody tr:nth-child(odd) {
-      background-color: #f8f9fa;
-    }
+        table th {
+            padding: 18px;
+            text-align: center;
+            font-weight: bold;
 
-    table tbody tr:hover {
-      background-color: #f2f7ff;
-      transition: background-color 0.3s ease;
-    }
-    
+        }
 
-    .error-message {
-      color: #dc3545;
-      text-align: center;
-      padding: 10px;
-      margin: 10px 0;
-      background-color: #fff;
-      border-radius: 8px;
-      border: 1px solid #dc3545;
-    }
+        table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+            font-size: 10px;
 
-    .loading {
-      text-align: center;
-      padding: 20px;
-    }
+        }
 
-    .loading::after {
-      content: "...";
-      animation: dots 1.5s steps(5, end) infinite;
-    }
+        table tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
 
-    @keyframes dots {
-      0%, 20% { content: "."; }
-      40% { content: ".."; }
-      60%, 100% { content: "..."; }
-    }
+        table tbody tr:hover {
+            background-color: #f2f7ff;
+            transition: background-color 0.3s ease;
+        }
 
-    /* Logout button styles remain the same, just moved position */
-    .logout-button {
-      padding: 5px 8px;
-      background-color: #dc3545;
-      color: white;
-      border: none;
-      border-radius: 18px;
-      cursor: pointer;
-      font-size: 10px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      z-index: 1000;
-      display: none;
-      margin-top: 10px;  /* Added margin-top for spacing */
-    }
 
-    .logout-button:hover {
-      background-color: #c82333;
-      transform: scale(1.05);
-    }
+        .error-message {
+            color: #dc3545;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #fff;
+            border-radius: 8px;
+            border: 1px solid #dc3545;
+        }
 
-    #loginSection {
-      transition: opacity 0.3s ease-in-out;
-    }
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
 
-    .hidden {
-      display: none !important;
-    }
+        .loading::after {
+            content: "...";
+            animation: dots 1.5s steps(5, end) infinite;
+        }
 
-    #dataSection {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
+        @keyframes dots {
 
-    #dataSection.visible {
-      display: block;
-      opacity: 1;
-    }
+            0%,
+            20% {
+                content: ".";
+            }
+
+            40% {
+                content: "..";
+            }
+
+            60%,
+            100% {
+                content: "...";
+            }
+        }
+
+        /* Styles du bouton de déconnexion restent les mêmes, position déplacée */
+        .logout-button {
+            padding: 5px 8px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+            margin-top: 10px;
+            /* Marge supérieure ajoutée pour l'espacement */
+        }
+
+        .logout-button:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+
+        #loginSection {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #dataSection {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #dataSection.visible {
+            display: block;
+            opacity: 1;
+        }
+
         @media screen and (max-width: 400px) {
-      table {
-        font-size: 11px;
-      }
+            table {
+                font-size: 11px;
+            }
 
-      table th, table td {
-        padding: 6px 3px;
-      }
-    }
-      .input-group {
-      position: relative;
-      margin-bottom: 20px;
-    }
+            table th,
+            table td {
+                padding: 6px 3px;
+            }
+        }
 
-    .input-icon {
-      position: absolute;
-      left: 12px;
-      top: 40px;
-      color: #666;
-      font-size: 18px;
-    }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-    form input {
-      width: 100%;
-      padding: 12px 12px 12px 35px; /* Augmentation du padding gauche pour l'icône */
-      border: 2px solid #e3e3e3;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-    }
-.request-button {
-    width: 70%; /* لجعله بعرض كامل */
-    margin-bottom: 10px; /* مسافة بينه وبين زر Déconnexion */
-    padding: 5px 8px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 18px;
-    cursor: pointer;
-    font-size: 10px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    display: block;
-}
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 40px;
+            color: #666;
+            font-size: 18px;
+        }
 
-.logout-button {
-    width: 70%; /* لجعله بعرض كامل أيضًا */
-}
-    .request-button:hover {
-      background-color: #218838;
-      transform: scale(1.05);
-    }
-    #userDetails {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* لوضع العناصر في المنتصف أفقياً */
-    text-align: center;
-}
+        form input {
+            width: 100%;
+            padding: 12px 12px 12px 35px;
+            /* Augmentation du padding gauche pour l'icône */
+            border: 2px solid #e3e3e3;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .request-button {
+            width: 70%;
+            /* Pour le rendre pleine largeur */
+            margin-bottom: 10px;
+            /* Espace entre lui et le bouton Déconnexion */
+            padding: 5px 8px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 18px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .logout-button {
+            width: 70%;
+            /* Pour le rendre pleine largeur également */
+        }
+
+        .request-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        #userDetails {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Pour centrer les éléments horizontalement */
+            text-align: center;
+        }
 
 
-.request-button, .logout-button {
-    width: auto; /* يتكيف مع محتواه */
-    max-width: 200px; /* حد أقصى للعرض */
-    margin: 5px 0; /* مسافة رأسية بين الأزرار */
-    padding: 5px 15px; /* زيادة البادينج قليلاً */
-}
+        .request-button,
+        .logout-button {
+            width: auto;
+            /* S'adapte à son contenu */
+            max-width: 200px;
+            /* Largeur maximale */
+            margin: 5px 0;
+            /* Espace vertical entre les boutons */
+            padding: 5px 15px;
+            /* Augmenter légèrement le padding */
+        }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
 
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 15px;
-      width: 90%;
-      max-width: 500px;
-      max-height: 80vh;
-      overflow-y: auto;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-    .modal-content select, 
-    .modal-content input, 
-    .modal-content textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 2px solid #e3e3e3;
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
+        .modal-content select,
+        .modal-content input,
+        .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #e3e3e3;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
 
-    .modal-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
 
-    .modal-buttons button {
-      flex-grow: 1;
-      margin: 0 10px;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .modal-buttons button {
+            flex-grow: 1;
+            margin: 0 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    .modal-buttons .submit-btn {
-      background: linear-gradient(135deg, #28a745 0%, #218838 100%);
-      color: white;
-      
-    }
+        .modal-buttons .submit-btn {
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+            color: white;
 
-    .modal-buttons .cancel-btn {
-      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-      color: white;
-    }
-    .year-header {
-    text-align: center;
-    margin-bottom: 15px;
-}
+        }
 
-.year-header h3 {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    letter-spacing: 1px;
-    transition: transform 0.3s ease;
-    
-}
+        .modal-buttons .cancel-btn {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+        }
 
-.year-header h3:hover {
-    transform: scale(1.05);
-}
-  </style>
+        .year-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .year-header h3 {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
+
+        }
+
+        .year-header h3:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            animation: rotateImage 5s ; /* Ajout d'animation ici */
+        }
+        @keyframes rotateImage {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Style pour la modal d'image */
+        #imageModal {
+            display: none;
+            position: fixed;
+            z-index: 1001; /* Indice z plus élevé pour être au-dessus des autres modals */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9); /* Fond plus sombre pour la modal d'image */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imageModalContent {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        #imageModalClose {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #f8f8f8;
+            font-size: 30px;
+            font-weight: bold;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        #imageModalClose:hover,
+        #imageModalClose:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Styles ajoutés pour la couleur du reliquat */
+        .conge-color {
+            color: yellow;
+            font-weight: bold; /* Optionnel: pour mettre en gras */
+        }
+
+        .repos-color {
+            color: red;
+            font-weight: bold; /* Optionnel: pour mettre en gras */
+        }
+        /* Style pour le news bar */
+        #newsBar {
+            background-color: #ffeb3b; /* Jaune clair pour l'alerte */
+            font-size: 60%;
+            color: #333;
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            animation: pulseNews 2s infinite alternate; /* Animation pour attirer l'attention */
+        }
+
+        @keyframes pulseNews {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+
+
+    </style>
 </head>
-<body>
-<header>
-   <h1>ACFTC OUJDA</h1>
-      <div class="reliquat">RELIQUAT</div>
-      <div id="totalContributionsDisplay" class="total-contributions"></div>
-       
+
+<body onload="checkLoginState()">
+    <header>
+        <h1>ACFTC OUJDA</h1>
+        <div class="reliquat">RELIQUAT</div>
+        <div id="lastMonthReliquat" class="reliquat" style="margin-top: 5px; font-size: 0.9rem; display: none;"></div>
+
+
     </header>
 
-  <div class="container">
-    <div id="loginSection">
-      <form id="loginForm">
-     
-        <div class="input-group">
-          <label for="username">Nom d'utilisateur :</label>
-          <span class="input-icon">👤</span>
-          <input type="text" id="username" name="username" required>
+    <div class="container">
+        <div id="loginSection">
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <label for="username">Nom d'utilisateur :</label>
+                    <span class="input-icon">👤</span>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe :</label>
+                    <span class="input-icon">🔒</span>
+                    <input type="password" id="password" name="password" required>
+                    <span class="show-password" onclick="togglePassword()">👁️</span>
+                </div>
+
+                <button type="submit">Afficher les données</button>
+
+                <div class="help-text">
+                    <a
+                        href="https://wa.me/212641434629?text=Bonjour, j'ai oublié mon mot de passe. Voici mes informations : Nom et Matricule">
+                        Mot de passe oublié
+                    </a>
+
+                    <!-- Ajouter ce bouton ici -->
+                    <a href="#" onclick="openNewUserModal()" class="new-user-link">
+                        Nouveau Utilisateur
+                    </a>
+                </div>
+            </form>
         </div>
-        <div class="input-group">
-          <label for="password">Mot de passe :</label>
-          <span class="input-icon">🔒</span>
-          <input type="password" id="password" name="password" required>
-          <span class="show-password" onclick="togglePassword()">👁️</span>
+
+        <div id="dataSection">
+            <div id="userDetails">
+                <img id="userImage" src="" alt="Photo de Profil" class="profile-image" onclick="openImageModal(this)">
+                <h2 id="userName"></h2>
+                <p id="userMatricule" style="font-weight: bold; font-size: 12px; color: #007bff; margin-top: 5px;"></p>
+                <p id="userFunction"></p>
+                <p id="yearDisplay" style="font-weight: bold; font-size: 10px;color: #007bff;"></p>
+                <button id="logoutBtn" class="logout-button">Déconnexion</button>
+            </div>
+            <div id="result"></div>
         </div>
-        
-        <button type="submit">Afficher les données</button>
- 
-        <div class="help-text">
-  <a href="whatsapp://send?text=Bonjour, j'ai oublié mon mot de passe. Voici mes informations : Nom et Matricule&phone=0641434629">
-    Mot de passe oublié
-  </a>
-  
-  <!-- أضف هذا الزر هنا -->
-  <a href="#" onclick="openNewUserModal()" class="new-user-link">
-  Nouveau Utilisateur
-</a>
-</div>
-      </form>
+    </div>
+    <div id="leaveRequestModal" class="modal">
+        <div class="modal-content">
+            <h2>Demande de Congé/Repos</h2>
+            <form id="leaveRequestForm">
+                <label for="recipient">Envoyer à :</label>
+                <select id="recipient" required>
+                    <option value="">Sélectionnez un responsable</option>
+
+
+                </select>
+
+                <select id="leaveType" required>
+                    <option value="">Sélectionnez le type</option>
+                    <option value="un Congé">Congé</option>
+                    <option value="Repos">Repos</option>
+                </select>
+
+                <label for="startDate">Date de début:</label>
+                <input type="date" id="startDate" required>
+
+                <label for="endDate">Date de fin:</label>
+                <input type="date" id="endDate" required>
+
+                <label for="reason">Motif:</label>
+                <textarea id="reason" rows="4"
+                    placeholder="Expliquez la raison de votre demande (optionnel)"></textarea>
+
+                <div class="modal-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeLeaveRequestModal()">Annuler</button>
+                    <button type="submit" class="submit-btn">Envoyer (Préférence Outlook)</button>
+                </div>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.6em; color: #555;">Il est préférable d'envoyer cette demande via Outlook.</p>
+            </form>
+        </div>
     </div>
 
-    <div id="dataSection">
-      <div id="userDetails">
-        <h2 id="userName"></h2>
-        <p id="userFunction"></p>
-        <p id="yearDisplay" style="font-weight: bold; font-size: 10px;color: #007bff;"></p>
-        <button id="logoutBtn" class="logout-button">Déconnexion</button>
-      </div>
-      <div id="result"></div>
+
+
+    <!-- Modal Nouveau Utilisateur -->
+    <div id="newUserModal" class="modal">
+        <div class="modal-content">
+            <h2>Nouveau Utilisateur</h2>
+            <form id="newUserForm">
+                <input type="text" id="newUserNom" placeholder="Nom et Prénom" required>
+                <input type="text" id="newUserUsername" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="newUserPassword" placeholder="Mot de passe" required>
+
+                <div class="modal-buttons">
+                    <button type="button" class="cancel-btn" onclick="closeNewUserModal()">Annuler</button>
+                    <button type="submit" class="submit-btn">Enregistrer</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-<div id="leaveRequestModal" class="modal">
-  <div class="modal-content">
-    <h2>Demande de Congé/Repos</h2>
-    <form id="leaveRequestForm">
-      <label for="recipient">Envoyer à :</label>
-      <select id="recipient" required>
-        <option value="">Sélectionnez un responsable</option>
-        <!-- سيتم ملء هذه القائمة ديناميكيًا -->
-        	
-      </select>
 
-      <select id="leaveType" required>
-        <option value="">Sélectionnez le type</option>
-        <option value="un Congé">Congé</option>
-        <option value="Repos">Repos</option>
-      </select>
-
-      <label for="startDate">Date de début:</label>
-      <input type="date" id="startDate" required>
-
-      <label for="endDate">Date de fin:</label>
-      <input type="date" id="endDate" required>
-
-      <label for="reason">Motif:</label>
-      <textarea id="reason" rows="4" placeholder="Expliquez la raison de votre demande (optionnel)"></textarea>
-
-      <div class="modal-buttons">
-        <button type="button" class="cancel-btn" onclick="closeLeaveRequestModal()">Annuler</button>
-        <button type="submit" class="submit-btn">Envoyer</button>
-      </div>
-    </form>
-  </div>
-</div>
- 	
+    <!-- Structure de la Modal Image -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+        <span id="imageModalClose" onclick="closeImageModal()">×</span>
+        <img class="modal-content" id="imageModalContent">
+    </div>
 
 
-<!-- النموذج -->
-<div id="newUserModal" class="modal">
-  <div class="modal-content">
-    <h2>Nouveau Utilisateur</h2>
-    <form id="newUserForm">
-      <input type="text" id="newUserNom" placeholder="Nom et Prénom" required>
-      <input type="text" id="newUserUsername" placeholder="Nom d'utilisateur" required>
-      <input type="password" id="newUserPassword" placeholder="Mot de passe" required>
-      
-      <div class="modal-buttons">
-        <button type="button" class="cancel-btn" onclick="closeNewUserModal()">Annuler</button>
-        <button type="submit" class="submit-btn">Enregistrer</button>
-      </div>
-    </form>
-  </div>
-</div>
+    <script>
+        function showErrorMessage(message) {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = '#dc3545';
+            popup.style.color = 'white';
+            popup.style.padding = '20px';
+            popup.style.borderRadius = '10px';
+            popup.style.zIndex = '1000';
+            popup.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            popup.style.textAlign = 'center';
+            popup.style.maxWidth = '80%';
 
-<script>
-	function showErrorMessage(message) {
-  // Create popup container
-  const popup = document.createElement('div');
-  popup.style.position = 'fixed';
-  popup.style.top = '50%';
-  popup.style.left = '50%';
-  popup.style.transform = 'translate(-50%, -50%)';
-  popup.style.backgroundColor = '#dc3545';
-  popup.style.color = 'white';
-  popup.style.padding = '20px';
-  popup.style.borderRadius = '10px';
-  popup.style.zIndex = '1000';
-  popup.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-  popup.style.textAlign = 'center';
-  popup.style.maxWidth = '80%';
-  
-  // Create message element
-  const messageElement = document.createElement('div');
-  messageElement.textContent = message;
-  messageElement.style.marginBottom = '15px';
-  
-  // Create close button
-  const closeButton = document.createElement('button');
-  closeButton.textContent = 'Fermer';
-  closeButton.style.backgroundColor = 'white';
-  closeButton.style.color = '#dc3545';
-  closeButton.style.border = 'none';
-  closeButton.style.padding = '10px 20px';
-  closeButton.style.borderRadius = '5px';
-  closeButton.style.cursor = 'pointer';
-  
-  // Add close functionality
-  closeButton.addEventListener('click', () => {
-    document.body.removeChild(popup);
-  });
-  
-  // Assemble popup
-  popup.appendChild(messageElement);
-  popup.appendChild(closeButton);
-  
-  // Add to document
-  document.body.appendChild(popup);
-  
-  // Auto-remove after 5 seconds
-  setTimeout(() => {
-    if (document.body.contains(popup)) {
-      document.body.removeChild(popup);
-    }
-  }, 5000);
-}
-	
-    function openNewUserModal() {
-  document.getElementById('newUserModal').style.display = 'flex';
-}
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.style.marginBottom = '15px';
 
-function closeNewUserModal() {
-  document.getElementById('newUserModal').style.display = 'none';
-}
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Fermer';
+            closeButton.style.backgroundColor = 'white';
+            closeButton.style.color = '#dc3545';
+            closeButton.style.border = 'none';
+            closeButton.style.padding = '10px 20px';
+            closeButton.style.borderRadius = '5px';
+            closeButton.style.cursor = 'pointer';
 
-    function closeNewUserModal() {
-        document.getElementById('newUserModal').style.display = 'none';
-    }
+            closeButton.addEventListener('click', () => {
+                document.body.removeChild(popup);
+            });
 
-    const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-    const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-    const sheetName = "2024";
+            popup.appendChild(messageElement);
+            popup.appendChild(closeButton);
+            document.body.appendChild(popup);
 
-    function togglePassword() {
-  const passwordInput = document.getElementById("password");
-  const eyeIcon = document.querySelector(".show-password");
-  
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    eyeIcon.textContent = "🚫";
-  } else {
-    passwordInput.type = "password";
-    eyeIcon.textContent = "👁️";
-  }
-}
+            setTimeout(() => {
+                if (document.body.contains(popup)) {
+                    document.body.removeChild(popup);
+                }
+            }, 5000);
+        }
 
-    function showLogoutButton() {
-      document.getElementById('logoutBtn').style.display = 'block';
-    }
+        function openNewUserModal() {
+            document.getElementById('newUserModal').style.display = 'flex';
+        }
 
-    function hideLogoutButton() {
-      document.getElementById('logoutBtn').style.display = 'none';
-    }
+        function closeNewUserModal() {
+            document.getElementById('newUserModal').style.display = 'none';
+        }
 
-    function logout() {
-      document.getElementById('loginSection').classList.remove('hidden');
-      document.getElementById('dataSection').classList.remove('visible');
-      document.getElementById('loginForm').reset();
-      hideLogoutButton();
-    }
 
-    document.getElementById('logoutBtn').addEventListener('click', logout);
+        const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+        const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+        let sheetName = "2024";
+        const sheetName2024 = "2024";
 
-    document.getElementById("loginForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.querySelector(".show-password");
 
-  const username = document.getElementById("username").value.trim().toLowerCase();
-  const password = document.getElementById("password").value.trim();
-  const userPassword = `${username}:${password}`;
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.textContent = "🚫";
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.textContent = "👁️";
+            }
+        }
 
-  const resultDiv = document.getElementById("result");
-  
-  // إنشاء عنصر لعرض رسائل الخطأ بشكل أوضح
-  const errorMessageDiv = document.createElement('div');
-  errorMessageDiv.className = 'error-message';
-  errorMessageDiv.style.display = 'none';
-  resultDiv.innerHTML = ''; // مسح أي محتوى سابق
-  resultDiv.appendChild(errorMessageDiv);
+        function showLogoutButton() {
+            document.getElementById('logoutBtn').style.display = 'block';
+        }
 
-  resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
+        function hideLogoutButton() {
+            document.getElementById('logoutBtn').style.display = 'none';
+        }
 
-  try {
-    const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
-    );
-    const data = await response.json();
+        function logout() {
+            document.getElementById('loginSection').classList.remove('hidden');
+            document.getElementById('dataSection').classList.remove('visible');
+            document.getElementById('loginForm').reset();
+            hideLogoutButton();
+            localStorage.removeItem('userCredentials');
+        }
 
-    if (!data.values) {
-      showErrorMessage("Erreur lors du chargement des données. Vérifiez les paramètres.");
-      return;
-    }
+        document.getElementById('logoutBtn').addEventListener('click', logout);
 
-    const rows = data.values;
-    const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-    if (!userRow) {
-      showErrorMessage("Nom d'utilisateur ou mot de passe incorrect.");
-      return;
-    }
+            const username = document.getElementById("username").value.trim().toLowerCase();
+            const password = document.getElementById("password").value.trim();
+            const userPassword = `${username}:${password}`;
 
-    document.getElementById('loginSection').classList.add('hidden');
-    document.getElementById('dataSection').classList.add('visible');
-    showLogoutButton();
+            localStorage.setItem('userCredentials', JSON.stringify({ username, password }));
 
-    const userName = userRow[0] || "Non spécifié";
-    const userFunction = userRow[1] || "Non spécifié";
-    document.getElementById("userName").textContent = userName;
-    document.getElementById("userFunction").textContent = userFunction;
-    document.getElementById("yearDisplay").textContent = `Année : ${sheetName}`;
 
-    const months = [
-      "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-      "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-    ];
+            const resultDiv = document.getElementById("result");
 
-    let table = `
-      <table>
-        <thead>
-          <tr>
-            <th>Mois</th>
-            <th>CONGÉ</th>
-            <th>REPOS</th>
-          </tr>
-        </thead>
-        <tbody>
-    `;
 
-    for (let i = 0; i < months.length; i++) {
-      const conge = userRow[2 + i * 2] || "Non disponible";
-      const repos = userRow[3 + i * 2] || "Non disponible";
-      table += `
-        <tr>
-          <td>${months[i]}</td>
-          <td>${conge}</td>
-          <td>${repos}</td>
-        </tr>
-      `;
-    }
+            const errorMessageDiv = document.createElement('div');
+            errorMessageDiv.className = 'error-message';
+            errorMessageDiv.style.display = 'none';
+            resultDiv.innerHTML = '';
+            resultDiv.appendChild(errorMessageDiv);
 
-    table += `
-        </tbody>
-      </table>
-    `;
+            resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
 
-    resultDiv.innerHTML = table;
-  } catch (error) {
-    console.error(error);
-    showErrorMessage("Erreur lors du chargement des données. Veuillez réessayer plus tard.");
-  }
-});
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
+                );
+                const data = await response.json();
 
-// دالة مساعدة لعرض رسائل الخطأ
+                if (!data.values) {
+                    showErrorMessage("Erreur lors du chargement des données. Vérifiez les paramètres.");
+                    return;
+                }
 
-   const userDetailsDiv = document.getElementById('userDetails');
+                const rows = data.values;
+                const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
 
-const leaveRequestBtn = document.createElement('button');
-leaveRequestBtn.id = 'leaveRequestBtn';
-leaveRequestBtn.className = 'request-button';
-leaveRequestBtn.textContent = 'Demande Congé/Repos';
-leaveRequestBtn.style.display = 'block';
+                if (!userRow) {
+                    showErrorMessage("Nom d'utilisateur ou mot de passe incorrect.");
+                    return;
+                }
 
-const logoutBtn = document.getElementById('logoutBtn');
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('dataSection').classList.add('visible');
+                showLogoutButton();
 
-// إضافة الزر قبل زر تسجيل الخروج
-userDetailsDiv.insertBefore(leaveRequestBtn, logoutBtn);
-    // Modal functions
-    function openLeaveRequestModal() {
-      document.getElementById('leaveRequestModal').style.display = 'flex';
-    }
 
-    function closeLeaveRequestModal() {
-      document.getElementById('leaveRequestModal').style.display = 'none';
-    }
+                loadUserDetailsFrom2024(username, password);
+                loadUserData(sheetName);
 
-    // Event listener for Leave Request button
-    document.getElementById('leaveRequestBtn').addEventListener('click', openLeaveRequestModal);
+            } catch (error) {
+                console.error(error);
+                showErrorMessage("Erreur lors du chargement des données. Veuillez réessayer plus tard.");
+            }
+        });
 
-    // Handle form submission
-    document.getElementById('leaveRequestForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
+        async function loadUserDetailsFrom2024(username, password) {
+            const userPassword = `${username}:${password}`;
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName2024}?key=${apiKey}`
+                );
+                const data = await response.json();
+                if (!data.values) {
+                    console.error("Aucune donnée trouvée dans la feuille 2024 pour les détails de l'utilisateur.");
+                    return;
+                }
+                const rows = data.values;
+                const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
 
-  const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-  const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-  const demandeCongéSheet = "DEMANDE CONGÉ";
+                if (!userRow) {
+                    console.error("Utilisateur non trouvé dans la feuille 2024.");
+                    return;
+                }
+                const userName = userRow[0] || "Non spécifié"; // Charger userName depuis la feuille 2024
+                const userFunction = userRow[1] || "Non spécifié"; // Charger userFunction depuis la feuille 2024
+                const userMatricule = userRow[28] || "Non spécifié";
+                const userImageURL = userRow[27] || "";
+                const newsContent = userRow[29] || ""; // Récupérer le contenu des actualités depuis la colonne AD (index 29)
 
-  try {
-    // Fetch names and WhatsApp numbers
-    const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${demandeCongéSheet}?key=${apiKey}`
-    );
-    const data = await response.json();
+                const userImageElement = document.getElementById("userImage");
+                if (userImageURL) {
+                    userImageElement.src = userImageURL;
+                    userImageElement.style.display = 'block';
+                } else {
+                    userImageElement.style.display = 'none';
+                }
+                document.getElementById("userMatricule").textContent = `Matricule: ${userMatricule}`;
+                document.getElementById("userName").textContent = userName; // Mettre à jour l'affichage de userName
+                document.getElementById("userFunction").textContent = userFunction; // Mettre à jour l'affichage de userFunction
 
-    if (!data.values) {
-      alert('Erreur de chargement des données');
-      return;
-    }
+                // Gestion du news bar
+                let newsBar = document.getElementById('newsBar');
+                if (!newsBar) {
+                    newsBar = document.createElement('div');
+                    newsBar.id = 'newsBar';
+                    userDetailsDiv.appendChild(newsBar); // Ajouter après les infos utilisateur
+                }
 
-    // Populate the recipient dropdown (if not already populated)
-    const recipientSelect = document.getElementById('recipient');
-    if (recipientSelect.children.length === 1) { // Avoid re-adding options
-      data.values.slice(1).forEach((row) => {
-        const option = document.createElement("option");
-        option.value = row[2]; // WhatsApp number in column C
-        option.textContent = row[1]; // Name in column B
-        recipientSelect.appendChild(option);
-      });
-    }
+                if (newsContent) {
+                    newsBar.textContent = newsContent;
+                    newsBar.style.display = 'block'; // Afficher le news bar si contenu
+                } else {
+                    newsBar.style.display = 'none'; // Cacher si pas de contenu
+                }
 
-    // Get form values
-    const selectedRecipient = recipientSelect.options[recipientSelect.selectedIndex]; // Selected option
-    const recipientNumber = selectedRecipient.value;
-    const recipientName = selectedRecipient.textContent;
 
-    const leaveType = document.getElementById('leaveType').value;
-    const startDate = document.getElementById('startDate').value.split('-').reverse().join('-'); // Convert to DD-MM-YYYY
-    const endDate = document.getElementById('endDate').value.split('-').reverse().join('-'); // Convert to DD-MM-YYYY
-    const reason = document.getElementById('reason').value.trim() || "des raisons personnelles";
+            } catch (error) {
+                console.error("Erreur lors du chargement des détails de l'utilisateur depuis la feuille 2024:", error);
+            }
+        }
 
-    // Prepare message template from A2
-    const messageTemplate = data.values[1][0]; // A2 cell
-    const replacedMessage = messageTemplate
-      .replace('[TYPE]', leaveType)
-      .replace('[DATE_DEBUT]', startDate)
-      .replace('[DATE_FIN]', endDate)
-      .replace('[MOTIF]', reason)
-      .replace('[DESTINATAIRE]', recipientName);
 
-    // Open WhatsApp link for the selected recipient
-    if (recipientNumber) {
-      const whatsappLink = `whatsapp://send?text=${encodeURIComponent(replacedMessage)}&phone=${recipientNumber}`;
-      window.open(whatsappLink, '_blank');
-    }
+        const userDetailsDiv = document.getElementById('userDetails');
 
-    // Close modal
-    closeLeaveRequestModal();
-    alert('Demande envoyée avec succès!');
+        const leaveRequestBtn = document.createElement('button');
+        leaveRequestBtn.id = 'leaveRequestBtn';
+        leaveRequestBtn.className = 'request-button';
+        leaveRequestBtn.textContent = 'Demande Congé/Repos';
+        leaveRequestBtn.style.display = 'block';
 
-  } catch (error) {
-    console.error(error);
-    alert('Erreur lors de envoi de la demande');
-  }
-});
-async function populateRecipientDropdown() {
-  const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-  const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-  const demandeCongéSheet = "DEMANDE CONGÉ";
+        const logoutBtn = document.getElementById('logoutBtn');
 
-  try {
-    // Fetch data from the spreadsheet
-    const response = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${demandeCongéSheet}?key=${apiKey}`
-    );
-    const data = await response.json();
 
-    if (!data.values || data.values.length < 2) {
-      alert('Erreur de chargement des données ou pas de données disponibles.');
-      return;
-    }
+        userDetailsDiv.insertBefore(leaveRequestBtn, logoutBtn);
 
-    // Get the dropdown element
-    const recipientSelect = document.getElementById('recipient');
+        function openLeaveRequestModal() {
+            document.getElementById('leaveRequestModal').style.display = 'flex';
+        }
 
-    // Clear existing options (except the default one)
-    recipientSelect.innerHTML = '<option value="">Sélectionnez un responsable</option>';
+        function closeLeaveRequestModal() {
+            document.getElementById('leaveRequestModal').style.display = 'none';
+        }
 
-    // Add names from column B and corresponding WhatsApp numbers from column C
-    data.values.slice(1).forEach(row => {
-      const name = row[1]; // Column B (name)
-      const whatsapp = row[2]; // Column C (WhatsApp number)
 
-      if (name && whatsapp) {
-        const option = document.createElement('option');
-        option.value = whatsapp; // WhatsApp number as value
-        option.textContent = name; // Name as displayed text
-        recipientSelect.appendChild(option);
-      }
-    });
-  } catch (error) {
-    console.error("Erreur lors du chargement des données :", error);
-    alert('Erreur lors du chargement des données. Veuillez réessayer plus tard.');
-  }
-}
-function openLeaveRequestModal() {
-  // Populate the dropdown before showing the modal
-  populateRecipientDropdown();
+        document.getElementById('leaveRequestBtn').addEventListener('click', openLeaveRequestModal);
 
-  // Show the modal
-  document.getElementById('leaveRequestModal').style.display = 'flex';
-}
-function openNewUserModal() {
+
+        document.getElementById('leaveRequestForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+            const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+            const demandeCongéSheet = "DEMANDE CONGÉ";
+
+            try {
+
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${demandeCongéSheet}?key=${apiKey}`
+                );
+                const data = await response.json();
+
+                if (!data.values) {
+                    alert('Erreur de chargement des données');
+                    return;
+                }
+
+
+                const recipientSelect = document.getElementById('recipient');
+                if (recipientSelect.children.length === 1) {
+                    data.values.slice(1).forEach((row) => {
+                        const option = document.createElement("option");
+                        option.value = row[3];
+                        option.textContent = row[1];
+                        recipientSelect.appendChild(option);
+                    });
+                }
+
+
+                const selectedRecipient = recipientSelect.options[recipientSelect.selectedIndex];
+                const recipientEmail = selectedRecipient.value;
+                const recipientName = selectedRecipient.textContent;
+
+                const leaveType = document.getElementById('leaveType').value;
+                const startDate = document.getElementById('startDate').value.split('-').reverse().join('-');
+                const endDate = document.getElementById('endDate').value.split('-').reverse().join('-');
+                const reason = document.getElementById('reason').value.trim() || "des raisons personnelles";
+
+
+                const userNameElement = document.getElementById("userName");
+                const userMatriculeElement = document.getElementById("userMatricule");
+                const userFunctionElement = document.getElementById("userFunction");
+
+                const senderName = userNameElement.textContent;
+                const senderMatricule = userMatriculeElement.textContent.split(': ')[1];
+                const senderFunction = userFunctionElement.textContent;
+
+
+                const now = new Date();
+                const dateTimeString = now.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) + ' ' + now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+
+
+                const messageTemplate = data.values[1][0];
+                const emailSubject = "Demande de Congé/Repos";
+                let emailBody = messageTemplate
+                    .replace('[TYPE]', leaveType)
+                    .replace('[DATE_DEBUT]', startDate)
+                    .replace('[DATE_FIN]', endDate)
+                    .replace('[MOTIF]', reason)
+                    .replace('[DESTINATAIRE]', recipientName);
+
+                // Obtenir les données du reliquat du dernier mois directement à partir des variables mises à jour dans updateReliquatDisplay
+                let reliquatText = "";
+                if (lastDataMonthName) { // Vérifier si lastDataMonthName n'est pas null, ce qui signifie que nous avons trouvé les données du dernier mois
+                    reliquatText = `Reliquat ${lastDataMonthName}: Congé ${lastDataConge}, Repos ${lastDataRepos}`;
+                    emailBody += `\n\n${reliquatText}`;
+                }
+
+
+                emailBody += `\n\nCordialement,\n${senderName}\n${senderMatricule}\n${senderFunction}\n\nDate et heure d'envoi: ${dateTimeString}\n\nMessage envoyé depuis le site: https://reliquat.web.app/`;
+
+
+                if (recipientEmail) {
+                    const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoLink;
+                }
+
+
+                closeLeaveRequestModal();
+
+            } catch (error) {
+                console.error(error);
+                alert('Erreur lors de l\'envoi de la demande par e-mail');
+            }
+        });
+        async function populateRecipientDropdown() {
+            const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+            const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+            const demandeCongéSheet = "DEMANDE CONGÉ";
+
+            try {
+
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${demandeCongéSheet}?key=${apiKey}`
+                );
+                const data = await response.json();
+
+                if (!data.values || data.values.length < 2) {
+                    alert('Erreur de chargement des données ou pas de données disponibles.');
+                    return;
+                }
+
+
+                const recipientSelect = document.getElementById('recipient');
+
+
+                recipientSelect.innerHTML = '<option value="">Sélectionnez un responsable</option>';
+
+
+                data.values.slice(1).forEach(row => {
+                    const name = row[1];
+                    const email = row[3];
+
+                    if (name && email) {
+                        const option = document.createElement('option');
+                        option.value = email;
+                        option.textContent = name;
+                        recipientSelect.appendChild(option);
+                    }
+                });
+            } catch (error) {
+                console.error("Erreur lors du chargement des données :", error);
+
+                alert('Erreur lors du chargement des données. Veuillez réessayer plus tard.');
+            }
+        }
+        function openLeaveRequestModal() {
+
+            populateRecipientDropdown();
+
+
+            document.getElementById('leaveRequestModal').style.display = 'flex';
+        }
+        function openNewUserModal() {
             document.getElementById('newUserModal').style.display = 'flex';
         }
 
@@ -904,118 +1091,127 @@ function openNewUserModal() {
         }
 
         document.getElementById('newUserForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
+            e.preventDefault();
 
-    const nom = document.getElementById('newUserNom').value.trim();
-    
-    const username = document.getElementById('newUserUsername').value.trim();
-    const password = document.getElementById('newUserPassword').value.trim();
+            const nom = document.getElementById('newUserNom').value.trim();
 
-    try {
-        // إرسال طلب POST إلى App Script
-        const response = await fetch('https://script.google.com/macros/s/AKfycbygUlNiRt6UxbrGFWEVFjVmScPtkmSgkA-ULXroGrJ_WygCNUTjS9xKCJk6G87HxIr23A/exec', {
-            method: 'POST',
-            body: JSON.stringify({
-                nom: nom,
-                
-                username: username,
-                password: password
-            })
+            const username = document.getElementById('newUserUsername').value.trim();
+            const password = document.getElementById('newUserPassword').value.trim();
+
+            try {
+
+                const response = await fetch('https://script.google.com/macros/s/AKfycbygUlNiRt6UxbrGFWEVFjVmScPtkmSgkA-ULXroGrJ_WygCNUTjS9xKCJk6G87HxIr23A/exec', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nom: nom,
+
+                        username: username,
+                        password: password
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    alert('Utilisateur enregistré avec succès!');
+                    closeNewUserModal();
+                } else {
+                    alert(result.message);
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert('Erreur lors de l\'enregistrement');
+            }
         });
+        async function fetchAvailableYears() {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
+                );
+                const data = await response.json();
 
-        const result = await response.json();
 
-        if (result.status === 'success') {
-            alert('Utilisateur enregistré avec succès!');
-            closeNewUserModal();
-        } else {
-            alert(result.message);
+                const yearSheets = data.sheets
+                    .map(sheet => sheet.properties.title)
+                    .filter(title => /^\d{4}$/.test(title))
+                    .sort((a, b) => b - a);
+
+
+                const yearSelect = document.createElement('select');
+                yearSelect.id = 'yearSelect';
+                yearSelect.style.marginTop = '5px';
+                yearSelect.style.fontSize = '10px';
+                yearSelect.style.color = '#007bff';
+
+                yearSheets.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    yearSelect.appendChild(option);
+                });
+
+
+                const yearDisplay = document.getElementById('yearDisplay');
+                yearDisplay.innerHTML = 'Année : ';
+                yearDisplay.appendChild(yearSelect);
+
+
+                yearSelect.addEventListener('change', function () {
+                    sheetName = this.value;
+                    loadUserData(sheetName);
+                });
+
+
+                const currentYear = new Date().getFullYear().toString();
+                const defaultYear = yearSheets.includes(currentYear) ? yearSheets[0] : yearSheets[0] || currentYear;
+
+                yearSelect.value = defaultYear;
+                sheetName = defaultYear;
+
+
+                return defaultYear;
+
+
+            } catch (error) {
+                console.error('Erreur lors de la récupération des années :', error);
+                return new Date().getFullYear().toString();
+            }
         }
 
-    } catch (error) {
-        console.error(error);
-        alert('Erreur lors de l enregistrement');
-    }
-});
-async function fetchAvailableYears() {
-    try {
-        const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
-        );
-        const data = await response.json();
+        async function loadUserData(selectedYear) {
+            const username = document.getElementById("username").value.trim().toLowerCase();
+            const password = document.getElementById("password").value.trim();
+            const userPassword = `${username}:${password}`;
 
-        // Filtrer les feuilles contenant uniquement des nombres (années)
-        const yearSheets = data.sheets
-            .map(sheet => sheet.properties.title)
-            .filter(title => /^\d{4}$/.test(title))
-            .sort((a, b) => b - a); // Trier les années du plus récent au plus ancien
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
 
-        const yearSelect = document.createElement('select');
-        yearSelect.id = 'yearSelect';
-        yearSelect.style.marginTop = '5px';
-        yearSelect.style.fontSize = '10px';
-        yearSelect.style.color = '#007bff';
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${selectedYear}?key=${apiKey}`
+                );
+                const data = await response.json();
 
-        yearSheets.forEach(year => {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            yearSelect.appendChild(option);
-        });
+                if (!data.values) {
+                    resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Vérifiez les paramètres.</p>";
+                    return;
+                }
 
-        // Remplacer le texte statique par la liste déroulante
-        const yearDisplay = document.getElementById('yearDisplay');
-        yearDisplay.innerHTML = ''; // Effacer le contenu actuel
-        yearDisplay.appendChild(yearSelect);
+                const rows = data.values;
+                const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
 
-        // Ajouter un événement de changement pour charger les données lors de la sélection de l'année
-        yearSelect.addEventListener('change', function() {
-            const selectedYear = this.value;
-            loadUserData(selectedYear);
-        });
+                if (!userRow) {
+                    resultDiv.innerHTML = "<p class='error-message'>Données non trouvées pour cette année.</p>";
+                    return;
+                }
 
-        // Charger les données de l'année en cours par défaut
-        yearSelect.value = new Date().getFullYear().toString();
-        loadUserData(yearSelect.value);
+                const months = [
+                    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+                    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+                ];
 
-    } catch (error) {
-        console.error('Erreur lors de la récupération des années :', error);
-    }
-}
-
-async function loadUserData(selectedYear) {
-    const username = document.getElementById("username").value.trim().toLowerCase();
-    const password = document.getElementById("password").value.trim();
-    const userPassword = `${username}:${password}`;
-
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
-
-    try {
-        const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${selectedYear}?key=${apiKey}`
-        );
-        const data = await response.json();
-
-        if (!data.values) {
-            resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Vérifiez les paramètres.</p>";
-            return;
-        }
-
-        const rows = data.values;
-        const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
-
-        if (!userRow) {
-            resultDiv.innerHTML = "<p class='error-message'>Données non trouvées pour cette année.</p>";
-            return;
-        }
-
-        const months = [
-            "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-        ];
-
-        let table = `
+                let table = `
     <div class="year-header">
         <h3>Congés et Repos " ${selectedYear} "</h3>
     </div>
@@ -1029,117 +1225,169 @@ async function loadUserData(selectedYear) {
         </thead>
         <tbody>
 `;
+                let lastMonthConge = "Non disponible";
+                let lastMonthRepos = "Non disponible";
+                let lastMonthName = "";
 
-for (let i = 0; i < months.length; i++) {
-    const conge = userRow[2 + i * 2] || "Non disponible";
-    const repos = userRow[3 + i * 2] || "Non disponible";
-    
-    // تحديد الشهر الأخير الذي يحتوي محتوى
-    const isLastMonthWithContent = (conge !== "Non disponible" || repos !== "Non disponible") && 
-        months.slice(i+1).every(m => {
-            const idx = months.indexOf(m);
-            const nextConge = userRow[2 + idx * 2] || "Non disponible";
-            const nextRepos = userRow[3 + idx * 2] || "Non disponible";
-            return nextConge === "Non disponible" && nextRepos === "Non disponible";
-        });
+                for (let i = 0; i < months.length; i++) {
+                    const conge = userRow[2 + i * 2] || "Non disponible";
+                    const repos = userRow[3 + i * 2] || "Non disponible";
 
-    let rowStyle = "";
-    if (isLastMonthWithContent) {
-        rowStyle = `
+                    const isLastMonthWithContent = (conge !== "Non disponible" || repos !== "Non disponible") &&
+                        months.slice(i + 1).every(m => {
+                            const idx = months.indexOf(m);
+                            const nextConge = userRow[2 + idx * 2] || "Non disponible";
+                            const nextRepos = userRow[3 + idx * 2] || "Non disponible";
+                            return nextConge === "Non disponible" && nextRepos === "Non disponible";
+                        });
+
+                    let rowStyle = "";
+                    if (isLastMonthWithContent) {
+                        rowStyle = `
             background: linear-gradient(135deg, #66a3e8 0%, #88a0e3 80%);
             border: 2px solid #4a90e2;
             font-weight: bold;
             color: #5c0d0d;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         `;
-    }
-    
-    table += `
+                        lastMonthConge = conge;
+                        lastMonthRepos = repos;
+                        lastMonthName = months[i];
+                    }
+
+                    table += `
         <tr style="${rowStyle}">
             <td>${months[i]}</td>
             <td>${conge}</td>
             <td>${repos}</td>
         </tr>
     `;
-}
-        resultDiv.innerHTML = table;
+                }
+                resultDiv.innerHTML = table;
 
-    } catch (error) {
-        console.error(error);
-        resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Veuillez réessayer plus tard.</p>";
-    }
-}
 
-// Modifier l'événement original du formulaire
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    await fetchAvailableYears();
-});
-async function fetchAvailableYears() {
-    try {
-        const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
-        );
-        const data = await response.json();
+            } catch (error) {
+                console.error(error);
+                resultDiv.innerHTML = "<p class='error-message'>Erreur lors du chargement des données. Veuillez réessayer plus tard.</p>";
+            }
+            updateReliquatDisplay(username, password);
+        }
 
-        // Filtrer les feuilles contenant uniquement des nombres (années)
-        const yearSheets = data.sheets
-            .map(sheet => sheet.properties.title)
-            .filter(title => /^\d{4}$/.test(title))
-            .sort((a, b) => b - a); // Trier les années du plus récent au plus ancien
+        let lastDataConge = "Non disponible"; // Variables pour stocker les données du dernier mois
+        let lastDataRepos = "Non disponible";
+        let lastDataMonthName = "";
 
-        const yearSelect = document.createElement('select');
-        yearSelect.id = 'yearSelect';
-        yearSelect.style.marginTop = '5px';
-        yearSelect.style.fontSize = '10px';
-        yearSelect.style.color = '#007bff';
+        async function updateReliquatDisplay(username, password) {
+            const userPassword = `${username}:${password}`;
+            lastDataConge = "Non disponible"; // Réinitialisation des valeurs
+            lastDataRepos = "Non disponible";
+            lastDataMonthName = "";
+            const months = [
+                "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+                "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+            ];
+            try {
+                const years = await fetchAvailableYearsForReliquat();
+                for (const year of years) {
+                    const response = await fetch(
+                        `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${year}?key=${apiKey}`
+                    );
+                    const data = await response.json();
+                    if (data.values) {
+                        const rows = data.values;
+                        const userRow = rows.find(row => row[26]?.toLowerCase() === userPassword.toLowerCase());
+                        if (userRow) {
+                            for (let i = months.length - 1; i >= 0; i--) { // Parcourir les mois du plus récent au plus ancien
+                                const conge = userRow[2 + i * 2] || "Non disponible";
+                                const repos = userRow[3 + i * 2] || "Non disponible";
+                                if (conge !== "Non disponible" || repos !== "Non disponible") { // Données trouvées pour ce mois
+                                    lastDataConge = conge;
+                                    lastDataRepos = repos;
+                                    lastDataMonthName = months[i];
+                                    break; // Sortir de la boucle des mois car nous avons trouvé le dernier mois
+                                }
+                            }
+                        }
+                    }
+                    if (lastDataMonthName) break; // Sortir de la boucle des années si le dernier mois avec des données est trouvé
+                }
 
-        yearSheets.forEach(year => {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            yearSelect.appendChild(option);
+
+                const lastMonthReliquatDisplay = document.getElementById('lastMonthReliquat');
+                if (lastDataMonthName) {
+                    lastMonthReliquatDisplay.innerHTML = `Reliquat ${lastDataMonthName}: <span class="conge-color">Congé ${lastDataConge}</span>, <span class="repos-color">Repos ${lastDataRepos}</span>`;
+                    lastMonthReliquatDisplay.style.display = 'block'; // Afficher l'affichage du reliquat
+                } else {
+                    lastMonthReliquatDisplay.style.display = 'none'; // Masquer si aucun reliquat n'est trouvé
+                }
+
+
+            } catch (error) {
+                console.error("Erreur lors de la mise à jour de l'affichage du reliquat:", error);
+                document.getElementById('lastMonthReliquat').style.display = 'none';
+            }
+        }
+
+
+        async function fetchAvailableYearsForReliquat() {
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
+                );
+                const data = await response.json();
+
+                return data.sheets
+                    .map(sheet => sheet.properties.title)
+                    .filter(title => /^\d{4}$/.test(title))
+                    .sort((a, b) => b - a);
+
+            } catch (error) {
+                console.error('Erreur lors de la récupération des années pour le reliquat:', error);
+                return [];
+            }
+        }
+
+
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const defaultYear = await fetchAvailableYears();
+            if (defaultYear) {
+                const username = document.getElementById("username").value.trim().toLowerCase();
+                const password = document.getElementById("password").value.trim();
+                await loadUserDetailsFrom2024(username, password);
+                await loadUserData(defaultYear);
+                await updateReliquatDisplay(username, password);
+            }
         });
 
-        // Remplacer le texte statique par la liste déroulante
-        const yearDisplay = document.getElementById('yearDisplay');
-        yearDisplay.innerHTML = 'Année : '; // Ajouter un libellé
-        yearDisplay.appendChild(yearSelect);
+        async function checkLoginState() {
+            const storedCredentials = localStorage.getItem('userCredentials');
+            if (storedCredentials) {
+                const resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = "<div class='loading'>Chargement des données</div>";
+                document.getElementById('loginSection').classList.add('hidden');
+                document.getElementById('dataSection').classList.add('visible');
+                const credentials = JSON.parse(storedCredentials);
+                document.getElementById('username').value = credentials.username;
+                document.getElementById('password').value = credentials.password;
+                // Charger les détails de l'utilisateur depuis la feuille 2024 au rechargement
+                await loadUserDetailsFrom2024(credentials.username, credentials.password);
+                const defaultYear = await fetchAvailableYears();
+                if (defaultYear) {
+                    await loadUserData(defaultYear);
+                    await updateReliquatDisplay(credentials.username, credentials.password);
+                    showLogoutButton();
+                }
+            } else {
+                await fetchAvailableYears();
+            }
+        }
 
-        // Ajouter un événement de changement pour charger les données lors de la sélection de l'année
-        yearSelect.addEventListener('change', function() {
-            const selectedYear = this.value;
-            loadUserData(selectedYear);
-        });
 
-        // Charger les données de l'année en cours par défaut
-        const currentYear = new Date().getFullYear().toString();
-        const defaultYear = yearSheets.includes(currentYear) ? currentYear : yearSheets[0];
-        
-        yearSelect.value = defaultYear;
-        
-        // Charger البيانات للسنة الافتراضية مباشرة بعد تسجيل الدخول
-        return defaultYear;
-
-    } catch (error) {
-        console.error('Erreur lors de la récupération des années :', error);
-        return null;
-    }
-}
-
-// Modifier l'événement original du formulaire
-document.getElementById("loginForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const defaultYear = await fetchAvailableYears();
-    if (defaultYear) {
-        await loadUserData(defaultYear);
-    }
-});
-// دالة إظهار الشاشة الأولى للـ Reliquat
-function showReliquatModal() {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = `
+        function showReliquatModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
         <div class="modal-content">
             <h2>Page réservée à l'administrateur</h2>
             <form id="reliquatLoginForm">
@@ -1152,52 +1400,52 @@ function showReliquatModal() {
             </form>
         </div>
     `;
-    document.body.appendChild(modal);
-    modal.style.display = 'flex';
+            document.body.appendChild(modal);
+            modal.style.display = 'flex';
 
-    document.getElementById('reliquatLoginForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const username = document.getElementById('reliquatUsername').value;
-        const password = document.getElementById('reliquatPassword').value;
+            document.getElementById('reliquatLoginForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const username = document.getElementById('reliquatUsername').value;
+                const password = document.getElementById('reliquatPassword').value;
 
-        // البحث عن المستخدم ABDELLAOUI MOHAMMED
-        const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-        const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-        const sheetName = "2024";
 
-        try {
-            const response = await fetch(
-                `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
-            );
-            const data = await response.json();
-            const rows = data.values;
+                const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+                const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+                const sheetName = "2024";
 
-            // البحث عن صف ABDELLAOUI MOHAMMED
-            const userRow = rows.find(row => row[0] === "ABDELLAOUI MOHAMMED");
+                try {
+                    const response = await fetch(
+                        `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
+                    );
+                    const data = await response.json();
+                    const rows = data.values;
 
-            if (userRow && userRow[26] === `${username}:${password}`) {
-                closeModal(e.target.closest('.modal'));
-                
-                // إنشاء نافذة المساهمات مع تحميل السنوات والأسماء
-                showContributionModal(async () => {
-                    await fetchAvailableYearsForContribution();
-                    await fetchNamesForContribution();
-                });
-            } else {
-                alert("Identifiants incorrects");
-            }
-        } catch (error) {
-            console.error(error);
-            alert("Erreur de connexion");
+
+                    const userRow = rows.find(row => row[0] === "ABDELLAOUI MOHAMMED");
+
+                    if (userRow && userRow[26] === `${username}:${password}`) {
+                        closeModal(e.target.closest('.modal'));
+
+
+                        showContributionModal(async () => {
+                            await fetchAvailableYearsForContribution();
+                            await fetchNamesForContribution();
+                        });
+                    } else {
+                        alert("Identifiants incorrects");
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert("Erreur de connexion");
+                }
+            });
         }
-    });
-}
 
-// تعديل دالة showContributionModal لتقبل دالة رد الاستدعاء اختيارية
-function showContributionModal(callback = null) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = `
+
+        function showContributionModal(callback = null) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
         <div class="modal-content">
             <h2>Saisie de données</h2>
             <form id="contributionForm">
@@ -1230,104 +1478,118 @@ function showContributionModal(callback = null) {
             </form>
         </div>
     `;
-    document.body.appendChild(modal);
-    modal.style.display = 'flex';
+            document.body.appendChild(modal);
+            modal.style.display = 'flex';
 
-    // استدعاء دالة رد الاستدعاء إذا كانت موجودة
-    if (callback) {
-        callback();
-    }
 
-    document.getElementById('contributionForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const year = document.getElementById('yearSelect').value;
-        const name = document.getElementById('nameSelect').value;
-        const month = document.getElementById('monthSelect').value;
-        const conge = document.getElementById('congeInput').value;
-        const repos = document.getElementById('reposInput').value;
+            if (callback) {
+                callback();
+            }
 
-        // إرسال البيانات إلى App Script
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzhjECCcMsNThqVbXSFKxWPpUq5RP41t02Eaf_6Vx0GVZbHJPpMDu-9EPuNVqDoDFDk-A/exec', {
-            method: 'POST',
-            body: JSON.stringify({
-                year, name, month, conge, repos
-            })
-        });
+            document.getElementById('contributionForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const year = document.getElementById('yearSelect').value;
+                const name = document.getElementById('nameSelect').value;
+                const month = document.getElementById('monthSelect').value;
+                const conge = document.getElementById('congeInput').value;
+                const repos = document.getElementById('reposInput').value;
 
-        const result = await response.json();
-        if (result.status === 'success') {
-            alert('Contribution enregistrée avec succès');
-        } else {
-            alert(result.message);
+
+                const response = await fetch('https://script.google.com/macros/s/AKfycbzhjECCcMsNThqVbXSFKxWPpUq5RP41t02Eaf_6Vx0GVZbHJPpMDu-9EPuNVqDoDFDk-A/exec', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        year, name, month, conge, repos
+                    })
+                });
+
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert('Contribution enregistrée avec succès');
+                } else {
+                    alert(result.message);
+                }
+            });
         }
-    });
-}
-
-// دوال مساعدة
-function closeModal(element) {
-    const modal = element.closest('.modal');
-    modal.style.display = 'none';
-    modal.remove();
-}
-
-// إضافة الحدث للـ Reliquat
-document.querySelector('.reliquat').addEventListener('click', showReliquatModal);
-
-// دالة لجلب السنوات
-async function fetchAvailableYearsForContribution() {
-    const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-    const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-
-    try {
-        const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
-        );
-        const data = await response.json();
-
-        const yearOptions = document.getElementById('yearOptions');
-        const yearSheets = data.sheets
-            .map(sheet => sheet.properties.title)
-            .filter(title => /^\d{4}$/.test(title))
-            .sort((a, b) => b - a);
-
-        yearSheets.forEach(year => {
-            const option = document.createElement('option');
-            option.value = year;
-            yearOptions.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Erreur lors de la récupération des années', error);
-    }
-}
-
-// دالة لجلب الأسماء
-async function fetchNamesForContribution() {
-    const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
-    const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
-    const sheetName = "2024";
-
-    try {
-        const response = await fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
-        );
-        const data = await response.json();
-        const rows = data.values;
-
-        const nameSelect = document.getElementById('nameSelect');
-        const uniqueNames = [...new Set(rows.slice(1).map(row => row[0]))];
-
-        uniqueNames.forEach(name => {
-            const option = document.createElement('option');
-            option.value = name;
-            option.textContent = name;
-            nameSelect.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Erreur lors de la récupération des noms', error);
-    }
-}
 
 
-  </script>
+        function closeModal(element) {
+            const modal = element.closest('.modal');
+            modal.style.display = 'none';
+            modal.remove();
+        }
+
+
+        document.querySelector('.reliquat').addEventListener('click', showReliquatModal);
+
+
+        async function fetchAvailableYearsForContribution() {
+            const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+            const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}`
+                );
+                const data = await response.json();
+
+                const yearOptions = document.getElementById('yearOptions');
+                const yearSheets = data.sheets
+                    .map(sheet => sheet.properties.title)
+                    .filter(title => /^\d{4}$/.test(title))
+                    .sort((a, b) => b - a);
+
+                yearSheets.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    yearOptions.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Erreur lors de la récupération des années', error);
+            }
+        }
+
+
+        async function fetchNamesForContribution() {
+            const apiKey = "AIzaSyDN9HjJed_FxRchAOaFlbv7DGs57IWr7cw";
+            const spreadsheetId = "1u_k5KNO7oLgq-xxWiUfPjoArQkv0o1wvJGxTxcWXA5Y";
+            const sheetName = "2024";
+
+            try {
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`
+                );
+                const data = await response.json();
+                const rows = data.values;
+
+                const nameSelect = document.getElementById('nameSelect');
+                const uniqueNames = [...new Set(rows.slice(1).map(row => row[0]))];
+
+                uniqueNames.forEach(name => {
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    nameSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Erreur lors de la récupération des أسماء', error);
+            }
+        }
+
+
+        function openImageModal(imgElement) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('imageModalContent');
+            modalImg.src = imgElement.src;
+            modal.style.display = "flex";
+        }
+
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+
+    </script>
 </body>
+
 </html>
